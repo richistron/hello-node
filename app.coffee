@@ -1,11 +1,20 @@
 ###
-	Hello node
+	Hello node v0.1.1
+	MIT License
+	by @richistron
 ###
-http = require "http"
 
-http.createServer (req, res)->
-	res.writeHead 200, "Content-Type": "text/plain"
-	res.end "Hello node"
-.listen 1337, "127.0.0.1"
+# includes
+express = require "express"
+fs = require "fs"
 
-console.log "Server running at http://127.0.0.1:1337/"
+# start server
+app = express();
+
+# routes
+app.get "/", (req, res) ->
+  res.send "Hello node"  
+
+# listen
+app.listen 8080
+console.log "Server running at port 8080"
